@@ -8,6 +8,15 @@ body header > div > p {
   padding: 10px;
 }
 
+#weather {
+  padding-left: 50px;
+}
+#weather img {
+  width: 40px;
+  position: relative;
+  top: 12px;
+}
+
 #backImg {
   position: absolute;
   z-index: -1;
@@ -15,19 +24,13 @@ body header > div > p {
   left: 0px;
   width: 100%;
   height: 100%;
-  /*: url(../img/people-fun.jpg);
-
-      background-repeat: no-repeat;
-
-      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,1));
-  */
-  background-repeat: no-repeat;
   /* Fallback */
   background-image: url("../img/people-fun.jpg");
   /* CSS gradients */
   background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 85%, rgb(255, 255, 255)), url("../img/people-fun.jpg");
   background-size: cover;
   background-position: 0 480px;
+  background-repeat: no-repeat;
 }
 
 button:hover {
