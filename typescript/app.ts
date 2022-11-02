@@ -7,23 +7,33 @@ const API_JOKES2_URL: string = "https://api.chucknorris.io/jokes/random";
 const API_JOKES3_URL: string = "https://v2.jokeapi.dev/joke/Any?type=single";
 const jokeParagraph: Element = document.querySelector("#joke")!;
 const jokeBtn: HTMLElement = document.querySelector("#jokeBtn")!;
+const btnBkgrnd: HTMLElement = document.querySelector("#btnBkgrnd")!;
 const ratingDiv: HTMLElement = document.querySelector("#rating")!;
 const rate1Btn: HTMLElement = document.querySelector("#rate1")!;
 const rate2Btn: HTMLElement = document.querySelector("#rate2")!;
 const rate3Btn: HTMLElement = document.querySelector("#rate3")!;
 type Joke = { joke: string, score: number, date: string };
 const reportJokes: Joke[] = [];
-const weatherOutput: HTMLElement = document.querySelector("#weather")!;
+const weatherOutput: HTMLElement = document.querySelector("#weatherOutput")!;
+const weatherIcon: HTMLElement = document.querySelector("#weatherIcon")!;
+const weatherTemp: HTMLElement = document.querySelector("#weatherTemp")!;
+const backImg1: HTMLElement = document.querySelector("#backImg1")!;
+const backImg2: HTMLElement = document.querySelector("#backImg2")!;
+const backImg3: HTMLElement = document.querySelector("#backImg3")!;
+
 
 let latitude: number;
 let longitude: number;
 let currentJoke: string;
 
+changeBackground();
+
 // API's Jokes call function ----------------------------------------
 const showJoke = () => {
   const random: number = Math.floor(Math.random() * 3);
 
-  jokeBtn.innerHTML = `Següent acudit!`;
+  jokeBtn.innerHTML = `Següent acudit`;
+  btnBkgrnd.style.width = '152.94px';
   ratingDiv.style.display = 'flex';
 
   if (random === 0) {
@@ -49,6 +59,7 @@ const showJoke = () => {
       });
   }
 
+  changeBackground();
 };
 
 jokeBtn!.addEventListener("click", showJoke);
@@ -108,14 +119,17 @@ rate3Btn.addEventListener("click", () => {
 // API's Weather call function --------------------------------------
 const showWeather = (lat: number, lon: number) => {
   if (lat && lon) {
-    const API_WEATHER_URL: string = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`;
+    const API_WEATHER_URL: string = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${WEATHER_API_KEY}`;
 
     fetch(API_WEATHER_URL)
       .then((response) => response.json())
       .then((weatherObject) => {
         const icon: string = `https://openweathermap.org/img/wn/${weatherObject["weather"][0]["icon"]}@2x.png`;
-        const description: string = weatherObject["weather"][0]["main"];
-        weatherOutput.innerHTML = `Today's weather: <img src=${icon}> ${description}`;
+        const temp: string = Number(weatherObject["main"]["temp"]).toFixed(0);
+        weatherIcon.innerHTML = `<img src=${icon}>`;
+        weatherIcon.style.display = 'inline';
+        weatherTemp.innerHTML = `${temp} ºC`;
+        weatherTemp.style.display = 'inline';
       });
 
   } else {
@@ -146,3 +160,17 @@ function error(err: { code: number, message: string }) {
 }
 
 navigator.geolocation.getCurrentPosition(success, error, options);
+
+
+// Background images changing code ----------------------------------
+function changeBackground(): void {
+  backImg1.className = getClassName();
+  backImg2.className = getClassName();
+  backImg3.className = getClassName();
+};
+
+function getClassName(): string {
+  const random: number = Math.floor(Math.random() * 9);
+  const className : string = `backImg blob${random}`;
+  return className;
+}

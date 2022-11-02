@@ -18,27 +18,35 @@
 <body>
 
     <header>
-        <div id="weather"></div>
+        <div id="weather">
+            <span id="weatherIcon"></span>
+            <span id="weatherTemp"></span>
+        </div>
     </header>
 
-    <div id="mainCard">
+    <div id="jokeCard">
 
-        <h1>Preparat per riure? &#129315;</h1>
+        <h1>Preparat per riure?</h1>
         <p id="joke"></p>
         <div id="rating" style="display: none;">
-            <p>Puntua l'acudit!</p>
             <div id="ratingBtns">
-                <button id="rate1">Molt dolent....</button>
-                <button id="rate2">Prou bo</button>
-                <button id="rate3">Genial!!</button>
+                <button id="rate1"></button>
+                <button id="rate2"></button>
+                <button id="rate3"></button>
             </div>
         </div>
 
-        <button id="jokeBtn">Mostra'm un acudit!</button>
+        <button id="jokeBtn">Mostra'm un acudit!
+
+        </button>
+        <div id="btnBkgrnd"></div>
+        
 
     </div>
-    
-    <div id="backImg"></div>
+
+    <div id="backImg1" class="backImg blob1"></div>
+    <div id="backImg2" class="backImg blob2"></div>
+    <div id="backImg3" class="backImg blob3"></div>
 
 
     <script>var exports = {};</script>

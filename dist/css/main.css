@@ -1,95 +1,184 @@
-body {
-  font-family: "Noto Sans", sans-serif;
-  height: 100vh;
-  margin: 0;
-}
-body header > div > p {
-  margin: 0;
-  padding: 10px;
-}
-
-#weather {
-  padding-left: 50px;
-}
-#weather img {
-  width: 40px;
-  position: relative;
-  top: 12px;
-}
-
-#backImg {
+.backImg {
   position: absolute;
-  z-index: -1;
+  z-index: -2;
   top: 0px;
-  left: 0px;
   width: 100%;
   height: 100%;
-  /* Fallback */
-  background-image: url("../img/people-fun.jpg");
-  /* CSS gradients */
-  background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 85%, rgb(255, 255, 255)), url("../img/people-fun.jpg");
-  background-size: cover;
-  background-position: 0 480px;
+  background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
+  transition: background-image 1s;
+}
+
+#backImg2 {
+  position: absolute;
+  z-index: -1;
+  top: 500px;
+  left: 40px;
+  width: 15%;
+  height: 15%;
+}
+
+#backImg3 {
+  position: absolute;
+  z-index: -1;
+  top: 120px;
+  right: 50px;
+  width: 15%;
+  height: 15%;
+}
+
+.blob0 {
+  background-image: url(../img/blobs/blob_0.svg);
+}
+
+.blob1 {
+  background-image: url(../img/blobs/blob_1.svg);
+}
+
+.blob2 {
+  background-image: url(../img/blobs/blob_2.svg);
+}
+
+.blob3 {
+  background-image: url(../img/blobs/blob_3.svg);
+}
+
+.blob4 {
+  background-image: url(../img/blobs/blob_4.svg);
+}
+
+.blob5 {
+  background-image: url(../img/blobs/blob_5.svg);
+}
+
+.blob6 {
+  background-image: url(../img/blobs/blob_6.svg);
+}
+
+.blob7 {
+  background-image: url(../img/blobs/blob_7.svg);
+}
+
+.blob8 {
+  background-image: url(../img/blobs/blob_8.svg);
+}
+
+.blob9 {
+  background-image: url(../img/blobs/blob_9.svg);
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  overflow-y: hidden;
 }
 
 button:hover {
   cursor: pointer;
 }
 
-#mainCard {
-  background-color: white;
-  margin: 50px auto;
-  width: 60%;
-  border-radius: 10px;
+#weather {
+  position: absolute;
+  z-index: -1;
+  top: 10px;
+  left: 10px;
+  padding-left: 20px;
+}
+#weather #weatherIcon {
+  display: none;
+}
+#weather img {
+  width: 40px;
+  position: relative;
+  top: 13px;
+}
+#weather #weatherTemp {
+  display: none;
+  padding-left: 10px;
+  margin-left: 10px;
+  border-left: 2px solid black;
+}
+
+#jokeCard {
+  margin: 0 auto;
+  width: 40%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: -8px 8px 8px 8px rgba(0, 0, 0, 0.2);
-  padding: 30px;
+  justify-content: center;
+  color: white;
 }
-#mainCard #joke {
+#jokeCard h1 {
+  font-size: medium;
+  padding: 25px;
+}
+#jokeCard #joke {
   padding: 10px;
   min-height: 50px;
+  font-size: small;
 }
-#mainCard #rating {
+#jokeCard #rating {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0;
 }
-#mainCard #rating p {
-  padding: 0;
-  margin: 0;
-}
-#mainCard #rating #ratingBtns {
+#jokeCard #rating #ratingBtns {
   width: 60%;
   display: flex;
   justify-content: space-evenly;
+  font-size: small;
 }
-#mainCard #rating #ratingBtns button {
-  border-radius: 50%;
-  margin: 30px 0;
-  padding: 20px;
-  height: 100px;
-  width: 100px;
+#jokeCard #rating #ratingBtns button {
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: 30px;
   border: 0;
-  font-weight: 800;
+  font-size: 30px;
+  text-shadow: 2px 2px rgb(234, 204, 4);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
 }
-#mainCard #rating #ratingBtns #rate1 {
-  background-color: red;
+#jokeCard #rating #ratingBtns #rate1 {
+  background-image: url("../img/triste.png");
 }
-#mainCard #rating #ratingBtns #rate2 {
-  background-color: yellow;
+#jokeCard #rating #ratingBtns #rate2 {
+  background-image: url("../img/sorprendido.png");
 }
-#mainCard #rating #ratingBtns #rate3 {
-  background-color: green;
+#jokeCard #rating #ratingBtns #rate3 {
+  background-image: url("../img/feliz.png");
 }
-#mainCard #jokeBtn {
-  background-color: rgb(102, 208, 232);
+#jokeCard #jokeBtn {
+  background-color: rgba(0, 0, 0, 0);
+  background-position: 4px 4px;
   padding: 15px 30px;
-  border: 0;
-  border-radius: 10px;
-  color: white;
+  margin-top: 30px;
+  border: 2px solid black;
+  border-radius: 30px;
+  font-weight: 600;
+}
+#jokeCard #btnBkgrnd {
+  content: "";
+  display: block;
+  width: 179.91px;
+  height: 49px;
+  background-color: rgb(234, 204, 4);
+  position: relative;
+  left: 4px;
+  top: -45px;
+  border-radius: 30px;
+  z-index: -1;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  height: 100vh;
+}
+body header > div > p {
+  margin: 0;
+  padding: 10px;
 }/*# sourceMappingURL=main.css.map */
